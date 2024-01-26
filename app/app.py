@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///books.db'
 db = SQLAlchemy(app)
 
-# Book model
+#book model
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
@@ -31,7 +31,7 @@ def add_book():
         return redirect('/books')
     return render_template('add_book.html')
 
-# Create database and tables
+#database and tables
 def add_context():
     with app.app_context():
         db.create_all()
